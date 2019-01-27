@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   
   before_action :find_orgs, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @organizations = Organization.all.order('created_at DESC')

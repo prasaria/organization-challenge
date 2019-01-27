@@ -4,7 +4,8 @@
   </p>
 
   <p class="date">
-    <%= link_to "Edit", edit_organization_path(@organization) %> |
+    <%= @organization.created_at %>
+    | <%= link_to "Edit", edit_organization_path(@organization) %> |
     <%= link_to "Delete", organization_path(@organization), method: :delete, data: { confirm: 'Are you sure ?' } %>
   </p>
 
