@@ -5,8 +5,10 @@
 
   <p class="date">
     <%= @organization.created_at %>
-    | <%= link_to "Edit", edit_organization_path(@organization) %> |
-    <%= link_to "Delete", organization_path(@organization), method: :delete, data: { confirm: 'Are you sure ?' } %>
+    <% if user_signed_in? && current_user.user_type == "account_manager" %>
+      | <%= link_to "Edit", edit_organization_path(@organization) %> |
+      <%= link_to "Delete", organization_path(@organization), method: :delete, data: { confirm: 'Are you sure ?' } %>
+    <% end %>
   </p>
 
   <p class="body">

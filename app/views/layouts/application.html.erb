@@ -32,8 +32,11 @@
         <% end %>
 
         <% if user_signed_in? %>
+        <p> Current User: <%= current_user.user_type %> </p>
         <div class="buttons">
-        <button class="button"><%= link_to "Create Organizations", new_organization_path  %></button>
+        <% if current_user.user_type == "account_manager" %>
+          <button class="button"><%= link_to "Create Organizations", new_organization_path  %></button>
+        <% end %>
         <button class="button"><%= link_to "Sign Out",destroy_user_session_path, method: :delete %></button> 
         </div>
         <% end %>
