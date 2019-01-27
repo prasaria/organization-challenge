@@ -28,7 +28,11 @@
         <% if current_page?(root_path) %>
         <p>Organization Feed</p>
         <% else %>
+          <% if current_page?(persons_path) %>
+            <p>PIC Feed</p>
+          <% else %>
             <%= link_to "Back to Main Feed", root_path %>
+          <% end %>    
         <% end %>
 
         <% if user_signed_in? %>
