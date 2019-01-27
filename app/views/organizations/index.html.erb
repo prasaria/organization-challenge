@@ -1,0 +1,6 @@
+<% @organizations.each do |orgs| %>
+  <div class="post_wrapper">
+    <h2 class="title"><%= link_to orgs.name, orgs %></h2>
+    <p class="date"><%= time_ago_in_words(orgs.created_at) %></p>
+  </div>
+<% end %>
