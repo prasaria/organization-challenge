@@ -5,14 +5,19 @@ class OrganizationsController < ApplicationController
   end
 
   def new
-    
+    @organization = Organization.new
   end
 
   def create
     @organization = Organization.new(organization_params)
-    @organization.save
+    
+    if @organization.save
+      redirect_to @organization
+    else
+      render 'new'
+    end
 
-    redirect_to @organization
+    
   end
 
   def show
