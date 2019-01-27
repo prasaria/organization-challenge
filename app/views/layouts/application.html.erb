@@ -15,7 +15,7 @@
       <ul>
         <li class="category"><%= link_to "Orgz", root_path %></li>
         <li><%= link_to "Organizations", root_path %></li>
-        <li>About</li>
+        <li><%= link_to "PIC", persons_path %></li>
       </ul>
       
       <% if !user_signed_in? %>
@@ -26,16 +26,17 @@
       <div id="header">
         
         <% if current_page?(root_path) %>
-        <p>Post Feed</p>
+        <p>Organization Feed</p>
         <% else %>
-          <%= link_to "Back to Organizations Feed", root_path %>
+            <%= link_to "Back to Main Feed", root_path %>
         <% end %>
 
         <% if user_signed_in? %>
-        <p> Current User: <%= current_user.user_type %> </p>
+        <p>  Current User Type: <%= current_user.user_type.titleize %> </p>
         <div class="buttons">
         <% if current_user.user_type == "account_manager" %>
           <button class="button"><%= link_to "Create Organizations", new_organization_path  %></button>
+          <button class="button"><%= link_to "Create PIC", new_person_path  %></button>
         <% end %>
         <button class="button"><%= link_to "Sign Out",destroy_user_session_path, method: :delete %></button> 
         </div>

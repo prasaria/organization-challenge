@@ -1,0 +1,26 @@
+<div id="post_content">
+  <p class ="title">
+    Name: <%= @person.name %>
+  </p>
+
+  <p class="date">
+    <%= @person.created_at %>
+    <% if user_signed_in? && current_user.user_type == "account_manager" %>
+      | <%= link_to "Edit", edit_person_path(@person) %> |
+      <%= link_to "Delete", person_path(@person), method: :delete, data: { confirm: 'Are you sure ?' } %>
+    <% end %>
+  </p>
+
+  <p class="body">
+    Phone: <%= @person.phone %>
+  </p>
+
+  <p class="body">
+    Email: <%= @person.email %>
+  </p>
+
+  <div class="body">
+    Avatar:
+    <%= image_tag(@person.avatar) %>
+  </div>
+</div>

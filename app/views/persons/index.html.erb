@@ -1,0 +1,7 @@
+<% @persons.each do |person| %>
+  <div class="post_wrapper">
+    <h2 class="title"><%= link_to person.name, person %></h2>
+    <p class="body"><%= person.website%></p>
+    <p class="date"><%= time_ago_in_words(person.created_at) %></p>
+  </div>
+<% end %>
